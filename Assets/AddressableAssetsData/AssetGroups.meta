@@ -1,5 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 2b545990ef1484283b8410dc5c921416
+=======
+<<<<<<< HEAD:Assets/AddressableAssetsData/AssetGroups/Schemas.meta
+guid: b1de5167d96e54adfb6dc8bcd3881f1d
+=======
+guid: 2b545990ef1484283b8410dc5c921416
+>>>>>>> master:Assets/AddressableAssetsData/AssetGroups.meta
+>>>>>>> master
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

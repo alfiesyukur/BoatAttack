@@ -1,13 +1,9 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 <<<<<<< HEAD:Assets/AddressableAssetsData/AssetGroupTemplates/Packed Assets.asset.meta
 guid: e4c9067c28cb84a2f9627d996fec50f6
 =======
 guid: 497db4c173a744a768214e8ac93c2d40
 >>>>>>> master:Assets/AddressableAssetsData/AnalyzeData/AnalyzeRuleData.asset.meta
-=======
-guid: e4c9067c28cb84a2f9627d996fec50f6
->>>>>>> master
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 0

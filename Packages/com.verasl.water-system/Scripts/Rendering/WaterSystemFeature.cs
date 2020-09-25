@@ -12,6 +12,10 @@ namespace WaterSystem
         class WaterFxPass : ScriptableRenderPass
         {
             private const string k_RenderWaterFXTag = "Render Water FX";
+<<<<<<< HEAD
+=======
+            private ProfilingSampler m_WaterFX_Profile = new ProfilingSampler(k_RenderWaterFXTag);
+>>>>>>> master
             private readonly ShaderTagId m_WaterFXShaderTag = new ShaderTagId("WaterFX");
             private readonly Color m_ClearColor = new Color(0.0f, 0.5f, 0.5f, 0.5f); //r = foam mask, g = normal.x, b = normal.z, a = displacement
             private FilteringSettings m_FilteringSettings;
@@ -44,7 +48,11 @@ namespace WaterSystem
             public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData)
             {
                 CommandBuffer cmd = CommandBufferPool.Get(k_RenderWaterFXTag);
+<<<<<<< HEAD
                 using (new ProfilingSample(cmd, k_RenderWaterFXTag)) // makes sure we have profiling ability
+=======
+                using (new ProfilingScope(cmd, m_WaterFX_Profile)) // makes sure we have profiling ability
+>>>>>>> master
                 {
                     context.ExecuteCommandBuffer(cmd);
                     cmd.Clear();
@@ -74,6 +82,10 @@ namespace WaterSystem
         class WaterCausticsPass : ScriptableRenderPass
         {
             private const string k_RenderWaterCausticsTag = "Render Water Caustics";
+<<<<<<< HEAD
+=======
+            private ProfilingSampler m_WaterCaustics_Profile = new ProfilingSampler(k_RenderWaterCausticsTag);
+>>>>>>> master
             public Material WaterCausticMaterial;
             private static Mesh m_mesh;
 
@@ -85,7 +97,11 @@ namespace WaterSystem
                     return;
 
                 CommandBuffer cmd = CommandBufferPool.Get(k_RenderWaterCausticsTag);
+<<<<<<< HEAD
                 using (new ProfilingSample(cmd, k_RenderWaterCausticsTag))
+=======
+                using (new ProfilingScope(cmd, m_WaterCaustics_Profile))
+>>>>>>> master
                 {
                     // Create mesh if needed
                     if (!m_mesh)
@@ -111,8 +127,12 @@ namespace WaterSystem
         WaterCausticsPass m_CausticsPass;
 
         public WaterSystemSettings settings = new WaterSystemSettings();
+<<<<<<< HEAD
         [SerializeField]
         private Shader causticShader;
+=======
+        [SerializeField] private Shader causticShader;
+>>>>>>> master
 
         private Material _causticMaterial;
 
@@ -129,6 +149,10 @@ namespace WaterSystem
             m_CausticsPass = new WaterCausticsPass();
 
             causticShader = causticShader ? causticShader : Shader.Find("Hidden/BoatAttack/Caustics");
+<<<<<<< HEAD
+=======
+            if (causticShader == null) return;
+>>>>>>> master
             _causticMaterial = _causticMaterial ? _causticMaterial : new Material(causticShader);
 
             switch (settings.debug)
@@ -158,7 +182,12 @@ namespace WaterSystem
         public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData)
         {
             renderer.EnqueuePass(m_WaterFxPass);
+<<<<<<< HEAD
             renderer.EnqueuePass(m_CausticsPass);
+=======
+            if(_causticMaterial == null)
+                renderer.EnqueuePass(m_CausticsPass);
+>>>>>>> master
         }
 
         /// <summary>

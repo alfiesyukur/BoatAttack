@@ -299,7 +299,13 @@ namespace BoatAttack
 
         private static IEnumerator CreatePlayerUi(int player)
         {
+<<<<<<< HEAD
             var touch = Input.touchSupported && Input.multiTouchEnabled;
+=======
+            var touch = Input.touchSupported && Input.multiTouchEnabled &&
+                        (Application.platform == RuntimePlatform.Android ||
+                         Application.platform == RuntimePlatform.IPhonePlayer);
+>>>>>>> master
             var uiAsset = touch ? Instance.raceUiTouchPrefab : Instance.raceUiPrefab;
             var uiLoading = uiAsset.InstantiateAsync();
             yield return uiLoading;
